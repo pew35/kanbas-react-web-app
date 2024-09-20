@@ -23,18 +23,29 @@ export default function AssignmentEditor() {
                     <label htmlFor="wd-group">Assignment Group</label>
                 </td>
                 <td>
-                    <select id="wd-select-one-genre">
-                    <option value="Assignments">Assignments</option>
+                    <select id="wd-Assignments">
+                    <option value="wd-Assignments">Assignments</option>
                     </select>
                 </td>
             </tr>
             <br />
             <tr>
                 <td align="right" valign="top">
-                    <label htmlFor="wd-type">Submission Type</label>
+                    <label htmlFor="wd-display-grade-as">Display Drade as</label>
                 </td>
                 <td>
-                    <select id="wd-select-one-genre">
+                    <select id="wd-percentage">
+                    <option value="wd-percentage">percentage</option>
+                    </select>
+                </td>
+            </tr>
+            <br />
+            <tr>
+                <td align="right" valign="top">
+                    <label htmlFor="wd-submission-type">Submission Type</label>
+                </td>
+                <td>
+                    <select id="wd-Online">
                     <option value="Online">Online</option>
                     </select>
                 </td>
@@ -47,17 +58,20 @@ export default function AssignmentEditor() {
             <tr>
                 <td></td>
                 
-                <input type="checkbox" name="check-genre" id="wd-chkbox-comedy"/>
-                <label htmlFor="wd-chkbox-comedy">Comedy</label><br/>
+                <input type="checkbox" name="check-genre" id="wd-text-entry"/>
+                <label htmlFor="wd-text-entry">Text Entry</label><br/>
 
-                <input type="checkbox" name="check-genre" id="wd-chkbox-drama"/>
-                <label htmlFor="wd-chkbox-drama">Drama</label><br/>
+                <input type="checkbox" name="check-genre" id="wd-website-url"/>
+                <label htmlFor="wd-website-url">Website URL</label><br/>
 
-                <input type="checkbox" name="check-genre" id="wd-chkbox-scifi"/>
-                <label htmlFor="wd-chkbox-scifi">Science Fiction</label><br/>
+                <input type="checkbox" name="check-genre" id="wd-media-recordings"/>
+                <label htmlFor="wd-media-recordings">Media Recordings</label><br/>
 
-                <input type="checkbox" name="check-genre" id="wd-chkbox-fantasy"/>
-                <label htmlFor="wd-chkbox-fantasy">Fantasy</label>
+                <input type="checkbox" name="check-genre" id="wd-student-annotation"/>
+                <label htmlFor="wd-student-annotation">Student Annotation</label><br/>
+
+                <input type="checkbox" name="check-genre" id="wd-file-upload"/>
+                <label htmlFor="wd-file-upload">File Uploads</label>
             </tr>
             <br />
             <tr>
@@ -67,7 +81,7 @@ export default function AssignmentEditor() {
             <tr>
                 <td></td>
                 <td>
-                    <input id="wd-name" value="Everyone" />
+                    <input id="wd-assign-to" value="Everyone" />
                 </td>
             </tr>
             <br />
@@ -78,7 +92,7 @@ export default function AssignmentEditor() {
             <tr>
                 <td></td>
                 <td>
-                <input type="date"/><br/>
+                <input id = "wd-due-date" type="date"/>
                 </td>
             </tr>
             <br />
@@ -94,17 +108,25 @@ export default function AssignmentEditor() {
             <tr>
                 <td></td>
                 <td>
-                <input type="date"/><br/>
+                <input id ="wd-available-from" type="date"/>
                 </td>
                 <td>
-                <input type="date"/><br/>
+                <input id = "wd-available-until" type="date"/>
                 </td>
             </tr>
+            
            
         </table>
         <hr ></hr>
-        <button >Cancel</button>
-        <button>Save</button>
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><button>Cancel</button></td>
+                <td><button>Save</button></td>
+            </tr>
+        </table>
+        
       </div>
   );}
   
