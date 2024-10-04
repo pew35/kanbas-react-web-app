@@ -3,133 +3,116 @@ import { Link } from "react-router-dom";
 export default function AssignmentEditor() {
     return (
       <div id="wd-assignments-editor">
-        <label htmlFor="wd-name">Assignment Name</label>
-        <input id="wd-name" value="A1 - ENV + HTML" /><br /><br />
-        <textarea id="wd-description" cols={80} rows={10}>
+        <label htmlFor="wd-name" className="form-label">Assignment Name</label>
+        <input id="wd-name" className="form-control" value="A1" /><br /><br />
+        <textarea  className="form-control" id="wd-description" cols={80} rows={10}>
           The assignment is available online Submit a link to the landing page of
         </textarea>
         <br />
         <br />
-        <table>
-            <tr>
-                <td align="right" valign="top">
-                <label htmlFor="wd-points">Points</label>
-                </td>
-                <td>
-                <input id="wd-points" value={100} />
-                </td>
-            </tr>
-            <br />
-            <tr>
-                <td align="right" valign="top">
-                    <label htmlFor="wd-group">Assignment Group</label>
-                </td>
-                <td>
-                    <select id="wd-Assignments">
-                    <option value="wd-Assignments">Assignments</option>
-                    </select>
-                </td>
-            </tr>
-            <br />
-            <tr>
-                <td align="right" valign="top">
-                    <label htmlFor="wd-display-grade-as">Display Drade as</label>
-                </td>
-                <td>
-                    <select id="wd-percentage">
-                    <option value="wd-percentage">percentage</option>
-                    </select>
-                </td>
-            </tr>
-            <br />
-            <tr>
-                <td align="right" valign="top">
-                    <label htmlFor="wd-submission-type">Submission Type</label>
-                </td>
-                <td>
-                    <select id="wd-Online">
-                    <option value="Online">Online</option>
-                    </select>
-                </td>
-            </tr>
-            <br />
-            <tr>
-                <td></td>
-                online entry Options   
-            </tr>
-            <tr>
-                <td></td>
+        <div >
+            <form>
+                <div className="row mb-3">
+                    <label htmlFor="wd-points" className="col-sm-2 col-form-label">
+                        Points</label>
+                    <div className="col-sm-10">
+                        <input  className="form-control" id="wd-points" value={100} />
+                </div> </div>
+
+
+                <div className="row mb-3">
+                    <label htmlFor="wd-group" className="col-sm-2 col-form-label">
+                        Assignment Group</label>
+                    <div className="col-sm-10">
+                        <select className="form-select" id="wd-Assignments">
+                        <option value="wd-Assignments">Assignments</option></select>
+                </div></div>
+               
+                <div className="row mb-3">
+                    <label htmlFor="wd-display-grade-as" className="col-sm-2 col-form-label">
+                    Display Grade as</label>
+                    <div className="col-sm-10">
+                        <select className="form-select" id="wd-Assignments">
+                        <option value="wd-Assignments">percentage</option></select>
+                </div></div>
+
+                <div className="row mb-3">
+                        <label htmlFor="wd-submission-type" className="col-sm-2 col-form-label">
+                        Submission Type</label>
+                        
+                        <div className="col-sm-10">
+                        <div className="border p-3 rounded-3 ">
+                            <select className="form-select" id="wd-percentage">
+                            <option value="wd-percentage">online</option></select>
+                            <br />
+                            <label htmlFor="wd-online entry Options" className="col-form-label">
+                                online entry Options</label>
+                            
+                            <div className="form-check">
+                            <input className="form-check-input" type="checkbox" name="check-genre" id="wd-text-entry"/>
+                            <label className="form-check-label" htmlFor="wd-text-entry">Text Entry</label><br/>
+
+                            <input className="form-check-input" type="checkbox" name="check-genre" id="wd-website-url"/>
+                            <label className="form-check-label" htmlFor="wd-website-url">Website URL</label><br/>
+
+                            <input className="form-check-input" type="checkbox" name="check-genre" id="wd-media-recordings"/>
+                            <label className="form-check-label" htmlFor="wd-media-recordings">Media Recordings</label><br/>
+
+                            <input className="form-check-input" type="checkbox" name="check-genre" id="wd-student-annotation"/>
+                            <label className="form-check-label"htmlFor="wd-student-annotation">Student Annotation</label><br/>
+
+                            <input className="form-check-input" type="checkbox" name="check-genre" id="wd-file-upload"/>
+                            <label className="form-check-label" htmlFor="wd-file-upload">File Uploads</label></div>
                 
-                <input type="checkbox" name="check-genre" id="wd-text-entry"/>
-                <label htmlFor="wd-text-entry">Text Entry</label><br/>
+                        </div>  
+                    </div>
+                </div>
 
-                <input type="checkbox" name="check-genre" id="wd-website-url"/>
-                <label htmlFor="wd-website-url">Website URL</label><br/>
+                <div className="row mb-3">
+                    <label htmlFor="wd-display-grade-as" className="col-sm-2 col-form-label">
+                        Assign</label>
+                        
+                    <div className="col-sm-10">
+                        <div className="border p-3 rounded-3 ">
+                        <label htmlFor="wd-Assign-to" className="col-form-label">
+                        Assign to</label>
+                        <input  className="form-control" id="wd-Assign-to" value="Everyone" />
+                        <label htmlFor="wd-Assign-to" className="col-form-label">
+                        Due</label>
+                        <input className="form-control" id = "wd-due-date" type="date"/>
+                        <form>
+                        <div className="row">
+                            <div className="col">
+                                <label htmlFor="wd-due-date-1" className="col-form-label">Available from:</label>
+                                <input className="form-control" id="wd-due-date-1" type="date" />
+                            </div>
+                            
+                            <div className="col">
+                                <label htmlFor="wd-due-date-2" className="col-form-label">	Until:</label>
+                                <input className="form-control" id="wd-due-date-2" type="date" />
+                            </div>
+                        </div>
+                        </form>
+                        
 
-                <input type="checkbox" name="check-genre" id="wd-media-recordings"/>
-                <label htmlFor="wd-media-recordings">Media Recordings</label><br/>
+                        </div>  
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr/>
+        <div id="wd-Assignment-controls" className="text-nowrap ">
+            <Link to="/Kanbas/Courses/1234/Assignments">
+            <button id="wd-add-Assignment-btn" className="btn btn-lg btn-danger me-2 float-end">   
+                Save</button></Link>
+            <Link to="/Kanbas/Courses/1234/Assignments">
+            <button id="wd-Group" className="btn btn-lg btn-secondary me-2 float-end">
+                Cancel</button></Link>
+        </div>
 
-                <input type="checkbox" name="check-genre" id="wd-student-annotation"/>
-                <label htmlFor="wd-student-annotation">Student Annotation</label><br/>
-
-                <input type="checkbox" name="check-genre" id="wd-file-upload"/>
-                <label htmlFor="wd-file-upload">File Uploads</label>
-            </tr>
-            <br />
-            <tr>
-                <td align="right" valign="top">Assign</td>
-                Assign to
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input id="wd-assign-to" value="Everyone" />
-                </td>
-            </tr>
-            <br />
-            <tr>
-                <td ></td>
-                Due
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                <input id = "wd-due-date" type="date"/>
-                </td>
-            </tr>
-            <br />
-            <tr>
-                <td></td>
-                <td>
-                Available from:
-                </td>
-                <td>
-                Until
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                <input id ="wd-available-from" type="date"/>
-                </td>
-                <td>
-                <input id = "wd-available-until" type="date"/>
-                </td>
-            </tr>
-            
-           
-        </table>
-        <hr ></hr>
-        <table>
-            <tr>
-                <td></td>
-                <td></td>
-                <td><button>Cancel</button></td>
-                <td><button>Save</button></td>
-                <Link to="/Kanbas/Courses/1234/Assignments">back</Link>
-            </tr>
-        </table>
+       
+       
         
-      </div>
+    </div>
   );}
   

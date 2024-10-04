@@ -9,10 +9,6 @@ function App() {
   return (
     <HashRouter>
       <div >
-        
-        <Link to="/Labs"> Labs </Link> | <Link to="/Kanbas"> Kanbas </Link>
-        <br />
-        <br />
         <Routes>
           <Route path="/" element={<Navigate to="Kanbas" />} />
           <Route path = "/Labs/*" element = {<Labs />} />

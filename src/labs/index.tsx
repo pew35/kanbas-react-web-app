@@ -6,9 +6,8 @@ import TOC from "./toc";
 export default function Labs(){
     return(
         <div>
-            <h1>Peiyi Wu | cs5610.20596</h1>
-            <Link to="https://github.com/pew35/kanbas-react-web-app/tree/main">my github</Link>
             <h1>Labs</h1>
+            <h3>Peiyi Wu | cs5610.20596</h3>
             <TOC/>
             <Routes>
                 <Route path="/" element={<Navigate to="Lab1" />} />
