@@ -27,8 +27,8 @@ export default function Assignments() {
                             <br/>
                             <span className="wd-fg-color-red">Multiple Modules</span> | Not available until MAy 6 at 12:00am | Due May  13 at 11:59pm| 100 pts
                         </div>
-                    
-                    <AssignmentControlButtons /></Link></li>
+                        </Link>
+                    <AssignmentControlButtons /></li>
                     <li className="wd-lesson list-group-item p-3 ps-1">
                     <Link to ="/Kanbas/Courses/1234/Assignments/123"
                             className=" d-flex flex-row me-2 text-black bg-white">
@@ -38,8 +38,8 @@ export default function Assignments() {
                             <br/>
                             <span className="wd-fg-color-red">Multiple Modules</span> | Not available until MAy 6 at 12:00am | Due May  13 at 11:59pm| 100 pts
                         </div>
-                  
-                    <AssignmentControlButtons /></Link></li>
+                        </Link>
+                    <AssignmentControlButtons /></li>
                     <li className="wd-lesson list-group-item p-3 ps-1">
                     <Link to ="/Kanbas/Courses/1234/Assignments/123"
                             className=" d-flex flex-row me-2 text-black bg-white">
@@ -48,9 +48,9 @@ export default function Assignments() {
                         <div> A3 
                             <br/>
                             <span className="wd-fg-color-red">Multiple Modules</span> | Not available until MAy 6 at 12:00am | Due May  13 at 11:59pm| 100 pts
-                        </div>
+                        </div></Link>
                    
-                    <AssignmentControlButtons /></Link></li>
+                    <AssignmentControlButtons /></li>
                 </ul>
                 </li>
                 <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
