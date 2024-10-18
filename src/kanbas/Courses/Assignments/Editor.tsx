@@ -1,12 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
+import * as db from "../../Database";
 
 export default function AssignmentEditor() {
+    const { cid } = useParams();
+    const { pathname } = useLocation();
+    const assignments = db.assignments.filter((assignment: any) => assignment.course === cid);
+    const assignment = assignments.find((assignment)=> assignment._id === pathname.split("/")[5])
+   
     return (
+        
       <div id="wd-assignments-editor">
         <label htmlFor="wd-name" className="form-label">Assignment Name</label>
-        <input id="wd-name" className="form-control" value="A1" /><br /><br />
+        <input id="wd-name" className="form-control" value={assignment?.title} /><br /><br />
         <textarea  className="form-control" id="wd-description" cols={80} rows={10}>
-          The assignment is available online Submit a link to the landing page of
+          {assignment?.description}
         </textarea>
         <br />
         <br />
@@ -16,7 +23,7 @@ export default function AssignmentEditor() {
                     <label htmlFor="wd-points" className="col-sm-2 col-form-label">
                         Points</label>
                     <div className="col-sm-10">
-                        <input  className="form-control" id="wd-points" value={100} />
+                        <input  className="form-control" id="wd-points" value={assignment?.points} />
                 </div> </div>
 
 
@@ -79,12 +86,12 @@ export default function AssignmentEditor() {
                         <input  className="form-control" id="wd-Assign-to" value="Everyone" />
                         <label htmlFor="wd-Assign-to" className="col-form-label">
                         Due</label>
-                        <input className="form-control" id = "wd-due-date" type="date"/>
+                        <input className="form-control" id = "wd-due-date" type="date" value={assignment?.due}/>
                         <form>
                         <div className="row">
                             <div className="col">
                                 <label htmlFor="wd-due-date-1" className="col-form-label">Available from:</label>
-                                <input className="form-control" id="wd-due-date-1" type="date" />
+                                <input className="form-control" id="wd-due-date-1" type="date" value={assignment?.available}/>
                             </div>
                             
                             <div className="col">
