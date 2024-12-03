@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import * as db from "../Database";
+
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewCourse, deleteCourse, updateCourse } from "./coursesReducer";
@@ -9,9 +9,7 @@ export default function Dashboard() {
     const courses = useSelector((state: any) => state.coursesReducer.courses);
     const { currentUser } = useSelector((state: any) => state.accountReducer);
     const FACULTY = currentUser.role === "FACULTY";
-    const { enrollments } = useSelector(
-        (state: any) => state.enrollmentsReducer
-    );
+   
     const dispatch = useDispatch();
     const [courseNumber, setCourseNumber] = useState(0);
     const [enrollmentMode, setEnrollmentMode] = useState(false);
@@ -23,19 +21,7 @@ export default function Dashboard() {
         endDate: "2023-12-15",
         description: "New Description",
     });
-    useEffect(() => {
-        // Calculate the number of courses based on the user's role
-        const count = FACULTY
-            ? courses.length
-            : courses.filter((course: any) =>
-                  enrollments.some(
-                      (enrollment: any) =>
-                          enrollment.user === currentUser._id &&
-                          enrollment.course === course._id
-                  )
-              ).length;
-        setCourseNumber(count);
-    }, [courses, FACULTY, enrollments, currentUser._id]);
+    
 
     return (
         <div id="wd-dashboard">
@@ -97,17 +83,7 @@ export default function Dashboard() {
             <div id="wd-dashboard-courses" className="row">
                 <div className="row row-cols-1 row-cols-md-5 g-4">
                     {courses
-                        .filter((course: any) => {
-                            if (!FACULTY && !enrollmentMode) {
-                                return enrollments.some(
-                                    (enrollment: any) =>
-                                        enrollment.user === currentUser._id &&
-                                        enrollment.course === course._id
-                                );
-                            } else {
-                                return true;
-                            }
-                        })
+                        
                         .map((course: any) => (
                             <div
                                 className="wd-dashboard-course col"
@@ -166,13 +142,7 @@ export default function Dashboard() {
                                             )}
                                             {!FACULTY && (
                                                 <>
-                                                    {enrollments.some(
-                                                        (enrollment: any) =>
-                                                            enrollment.course ===
-                                                                course._id &&
-                                                            enrollment.user ===
-                                                                currentUser._id
-                                                    ) ? (
+                                                    {enrollmentMode ? (
                                                         <button
                                                             className="btn btn-danger float-end"
                                                             onClick={(e) => {
