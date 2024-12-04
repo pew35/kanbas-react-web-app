@@ -19,14 +19,14 @@ export default function Kanbas() {
         startDate: "2023-09-10", endDate: "2023-12-15",
         image: ""
     });
-    const updateCourse = async () => {
-        await courseClient.updateCourse(course);
-        setCourses(courses.map((c) => {
-            if (c._id === course._id) { return course; }
-            else { return c; }
-        })
-        );
-    };
+    // const updateCourse = async () => {
+    //     await courseClient.updateCourse(course);
+    //     setCourses(courses.map((c) => {
+    //         if (c._id === course._id) { return course; }
+    //         else { return c; }
+    //     })
+    //     );
+    // };
 
 
     const { currentUser } = useSelector((state: any) => state.accountReducer);
@@ -44,15 +44,15 @@ export default function Kanbas() {
         fetchCourses();
     }, [currentUser]);
 
-    const addNewCourse = async () => {
-        const newCourse = await userClient.createCourse(course);
-        setCourses([...courses, newCourse]);
-    };
+    // const addNewCourse = async () => {
+    //     const newCourse = await userClient.createCourse(course);
+    //     setCourses([...courses, newCourse]);
+    // };
 
-    const deleteCourse = async (courseId: string) => {
-        const status = await courseClient.deleteCourse(courseId);
-        setCourses(courses.filter((course) => course._id !== courseId));
-    };
+    // const deleteCourse = async (courseId: string) => {
+    //     const status = await courseClient.deleteCourse(courseId);
+    //     setCourses(courses.filter((course) => course._id !== courseId));
+    // };
 
 
 
