@@ -96,7 +96,7 @@ export default function Dashboard() {
         fetchEnrollments();
         fetchallCourses();
         fetchUserCourses();
-    }, [courses, allcourses,enrollments]);
+    }, [enrollments]);
 
 
     return (
