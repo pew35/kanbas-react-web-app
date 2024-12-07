@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import * as assignmentClient from "./client";
 import * as coursesClient from "../client";
+import { format } from 'date-fns';
 import {
     setAssignments,
     deleteAssignment,
@@ -35,6 +36,9 @@ export default function Assignments() {
         await assignmentClient.deleteAssignment(assignmentId);
         dispatch(deleteAssignment(assignmentId));
     };
+    const date = (date: string) =>{
+        return format(new Date(date), 'MMMM do h:mm a');
+    }
 
    
     return (
@@ -83,7 +87,7 @@ export default function Assignments() {
                                                 <span className="wd-fg-color-red">
                                                     Multiple Modules
                                                 </span>
-                                                {`| Not available until ${assignment.available} | Due ${assignment.due}| ${assignment.points} pts`}
+                                                {` | Due ${date(assignment.due)} | ${assignment.points} pts`}
                                             </div>
                                             <div
                                                 className="col-auto"

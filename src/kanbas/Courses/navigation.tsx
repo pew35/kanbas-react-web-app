@@ -1,4 +1,5 @@
 import { Link, useLocation, useParams } from "react-router-dom";
+import PeopleTable from "./People/Table";
 export default function CoursesNavigation() {
   const { cid } = useParams();
   const { pathname } = useLocation();
@@ -11,7 +12,8 @@ export default function CoursesNavigation() {
           className={`list-group-item border border-0
           ${pathname.includes(link) ? "active" : " text-danger"}`}>{link}</Link>
       ))}
-
+      
+      
     </div>
   );
 }

@@ -36,7 +36,7 @@ export default function ModuleEditor({
                             className="form-control"
                             defaultValue={moduleName}
                             placeholder="Module Name"
-                            onChange={(e) => setModuleName(e.target.value)}
+                            onChange={(e) => setModuleName(String(e.target.value))}
                         />
                     </div>
                     <div className="modal-footer">

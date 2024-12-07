@@ -9,41 +9,44 @@ export default function Signin() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const signin = async () => {
-        const user =  await client.signin(credentials);
-        if (!user) return;
-        dispatch(setCurrentUser(user));
-        navigate("/Kanbas/Dashboard");
-        
+        try {
+            const user = await client.signin(credentials);
+            if (!user) return;
+            dispatch(setCurrentUser(user));
+            navigate("/Kanbas/Dashboard");
+        } catch (error) {
+            console.log(error);
+            alert("Invalid username or password");
+        }
+
     };
     const tip = [
         {
-            _id: "123",
-            username: "iron_man",
-            password: "stark123",
-            firstName: "Tony",
-            lastName: "Stark",
-            email: "tony@stark.com",
-            dob: "1970-05-29T00:00:00.000Z",
-            role: "FACULTY",
-            loginId: "001234561S",
-            section: "S101",
-            lastActivity: "2020-10-01",
-            totalActivity: "10:21:32",
+            "username": "elf_archer",
+            "password": "legolas123",
+            "firstName": "Legolas",
+            "lastName": "Greenleaf",
+            "email": "legolas@mirkwood.com",
+            "dob": "2879-07-15",
+            "role": "FACULTY",
+            "loginId": "001234569S",
+            "section": "S101",
+            "lastActivity": "2020-11-11",
+            "totalActivity": "21:32:43"
         },
         {
-            _id: "234",
-            username: "dark_knight",
-            password: "wayne123",
-            firstName: "Bruce",
-            lastName: "Wayne",
-            email: "bruce@wayne.com",
-            dob: "1972-02-19",
-            role: "STUDENT",
-            loginId: "001234562S",
-            section: "S101",
-            lastActivity: "2020-11-02",
-            totalActivity: "15:32:43",
-        },
+            "username": "dark_knight",
+            "password": "wayne123",
+            "firstName": "Bruce",
+            "lastName": "Wayne",
+            "email": "bruce@wayne.com",
+            "dob": "1972-02-19",
+            "role": "STUDENT",
+            "loginId": "001234562S",
+            "section": "S101",
+            "lastActivity": "2020-11-02",
+            "totalActivity": "15:32:43"
+        }
     ];
 
     return (
@@ -82,12 +85,12 @@ export default function Signin() {
             <div className="mt-4">
                 <h5>User Tips</h5>
                 {tip.map((user) => (
-                    <div key={user._id} className="border rounded p-2 mb-2">
+                    <div key={user.username} className="border rounded p-2 mb-2">
                         <p><strong>Username:</strong> {user.username}</p>
                         <p><strong>Password:</strong> {user.password}</p>
                         <p><strong>Full Name:</strong> {user.firstName} {user.lastName}</p>
                         <p><strong>Email:</strong> {user.email}</p>
-                        <p><strong>Role:</strong> {user.role}</p>    
+                        <p><strong>Role:</strong> {user.role}</p>
                     </div>
                 ))}
             </div>

@@ -69,7 +69,7 @@ export default function Modules() {
                                             dispatch(
                                                 updateModule({
                                                     ...module,
-                                                    name: e.target.value,
+                                                    name: String(e.target.value),
                                                 })
                                             )
                                         }
