@@ -33,6 +33,8 @@ export default function Assignments() {
 
 
     const removeAssignment = async (assignmentId: string) => {
+        console.log("removeAssignment");
+        console.log(assignmentId);
         await assignmentClient.deleteAssignment(assignmentId);
         dispatch(deleteAssignment(assignmentId));
     };
