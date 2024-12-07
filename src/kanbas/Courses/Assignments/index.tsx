@@ -37,6 +37,7 @@ export default function Assignments() {
         dispatch(deleteAssignment(assignmentId));
     };
     const date = (date: string) =>{
+        if (date === null) return "NALL";
         return format(new Date(date), 'MMMM do h:mm a');
     }
 
