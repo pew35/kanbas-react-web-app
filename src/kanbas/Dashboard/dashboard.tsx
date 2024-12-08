@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 export default function Dashboard({
@@ -23,7 +22,7 @@ export default function Dashboard({
     updateEnrollment: (course: string, enrolled: boolean) => void;
 }) {
     const { currentUser } = useSelector((state: any) => state.accountReducer);
-    const FACULTY = currentUser.role === "FACULTY";
+    const FACULTY = currentUser.role !== "STUDENT";
 
     return (
         <div id="wd-dashboard">

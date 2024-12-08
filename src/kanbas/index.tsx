@@ -19,6 +19,7 @@ export default function Kanbas() {
         startDate: "2023-09-10", endDate: "2023-12-15",
         image: ""
     });
+    const { currentUser } = useSelector((state: any) => state.accountReducer);
     const updateCourse = async () => {
         await courseClient.updateCourse(course);
         setCourses(courses.map((c) => {
@@ -39,9 +40,11 @@ export default function Kanbas() {
     const fetchCourses = async () => {
         try {
             const allCourses = await courseClient.fetchAllCourses();
+            console.log("1");
             const enrolledCourses = await userClient.findCoursesForUser(
                 currentUser._id
             );
+            console.log("2");
             const courses = allCourses.map((course: any) => {
                 if (enrolledCourses.find((c: any) => c._id === course._id)) {
                     return { ...course, enrolled: true };
@@ -55,19 +58,22 @@ export default function Kanbas() {
         }
     };
 
+    console.log(currentUser);
 
 
-    const { currentUser } = useSelector((state: any) => state.accountReducer);
+
 
 
 
     useEffect(() => {
         if (enrolling) {
+            console.log("1");
             fetchCourses();
-          } else {
+        } else {
+            console.log("2");
             findCoursesForUser();
-          }
-       
+        }
+
     }, [currentUser, enrolling]);
 
     const addNewCourse = async () => {
@@ -85,21 +91,21 @@ export default function Kanbas() {
     };
     const updateEnrollment = async (courseId: string, enrolled: boolean) => {
         if (enrolled) {
-          await userClient.enrollIntoCourse(currentUser._id, courseId);
+            await userClient.enrollIntoCourse(currentUser._id, courseId);
         } else {
-          await userClient.unenrollFromCourse(currentUser._id, courseId);
+            await userClient.unenrollFromCourse(currentUser._id, courseId);
         }
         setCourses(
-          courses.map((course) => {
-            if (course._id === courseId) {
-              return { ...course, enrolled: enrolled };
-            } else {
-              return course;
-            }
-          })
+            courses.map((course) => {
+                if (course._id === courseId) {
+                    return { ...course, enrolled: enrolled };
+                } else {
+                    return course;
+                }
+            })
         );
-      };
-     
+    };
+
 
 
 
@@ -116,15 +122,15 @@ export default function Kanbas() {
                             element={
                                 <ProtectedRoute>
                                     <Dashboard
-                                    courses={courses} 
-                                    course={course} 
-                                    setCourse={setCourse}
-                                    addNewCourse={addNewCourse} 
-                                    deleteCourse={deleteCourse} 
-                                    updateCourse={updateCourse}
-                                    enrolling={enrolling} 
-                                    setEnrolling={setEnrolling} 
-                                    updateEnrollment={updateEnrollment}/>
+                                        courses={courses}
+                                        course={course}
+                                        setCourse={setCourse}
+                                        addNewCourse={addNewCourse}
+                                        deleteCourse={deleteCourse}
+                                        updateCourse={updateCourse}
+                                        enrolling={enrolling}
+                                        setEnrolling={setEnrolling}
+                                        updateEnrollment={updateEnrollment} />
                                 </ProtectedRoute>
                             }
                         />
@@ -138,7 +144,7 @@ export default function Kanbas() {
                         />
                         <Route path="/Calendar" element={<h1>Calendar</h1>} />
                         <Route path="/Inbox" element={<h1>Inbox</h1>} />
-                        
+
                     </Routes>
                 </div>
             </div>
