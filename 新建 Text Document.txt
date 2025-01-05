@@ -1,0 +1,18 @@
+peggywu226
+0MpYfBqKSGf72mhz
+mongodb+srv://peggywu226:0MpYfBqKSGf72mhz@kanbas.c0ygg.mongodb.net/
+
+
+MONGO_CONNECTION_STRING
+mongodb+srv://peggywu226:0MpYfBqKSGf72mhz@kanbas.c0ygg.mongodb.net/?retryWrites=true&w=majority&appName=Kanbas
+
+NETLIFY_URL
+https://a6--gleeful-hummingbird-5a4b23.netlify.app
+
+NODE_SERVER_DOMAIN
+
+NODE_ENV
+production
+
+SESSION_SECRET
+super secret session phrase
