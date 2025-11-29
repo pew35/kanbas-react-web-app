@@ -1,5 +1,5 @@
 # link to [demo](https://a3--gleeful-hummingbird-5a4b23.netlify.app/#/Kanbas/Account/Signin)
-
+### may need to login for full functions, without login you can still see all the pages
 
 # Getting Started with Create React App
 
